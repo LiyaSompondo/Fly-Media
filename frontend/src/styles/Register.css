@@ -1,0 +1,70 @@
+/* Register.css */
+.register-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.register-box {
+  background-color: #111;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.register-logo {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+.register-box h2 {
+  margin-bottom: 20px;
+  color: #ff0000;
+}
+
+.register-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.register-box button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff0000;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.register-box button:hover {
+  background-color: #cc0000;
+}
+
+.login-prompt {
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.login-prompt a {
+  color: #ff0000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-prompt a:hover {
+  text-decoration: underline;
+}

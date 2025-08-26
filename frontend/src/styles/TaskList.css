@@ -1,0 +1,251 @@
+.tasklist {
+  background: #0a0a0a;
+  color: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 0 18px rgba(230, 0, 0, 0.15);
+}
+
+/* Header / progress */
+.tasklist-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.tasklist-title {
+  margin: 0;
+  font-size: 1.4rem;
+}
+.tasklist-subtitle {
+  color: #bbb;
+  margin-top: 4px;
+  font-size: 0.95rem;
+}
+
+/* Simple circular progress feel */
+.progress-ring {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: conic-gradient(#e60000 var(--pct, 0%), #333 var(--pct, 0%));
+  display: grid;
+  place-items: center;
+}
+.progress-ring-inner {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #0a0a0a;
+  display: grid;
+  place-items: center;
+}
+.progress-number {
+  font-weight: 700;
+}
+
+/* Controls */
+.task-controls {
+  display: grid;
+  grid-template-columns: 1fr repeat(3, minmax(160px, 1fr));
+  gap: 10px;
+  margin: 14px 0 18px;
+}
+.control-input,
+.control-select {
+  background: #121212;
+  color: #fff;
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  padding: 10px 12px;
+  outline: none;
+}
+.control-input:focus,
+.control-select:focus {
+  border-color: #e60000;
+}
+
+/* New task form */
+.task-new {
+  background: #0f0f0f;
+  border: 1px solid #1f1f1f;
+  border-radius: 12px;
+  padding: 14px;
+  display: grid;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.task-new-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/* List */
+.task-list {
+  display: grid;
+  gap: 12px;
+}
+.task-card {
+  background: #111;
+  border: 1px solid #222;
+  border-left: 6px solid #e60000;
+  border-radius: 12px;
+  padding: 14px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.task-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(230, 0, 0, 0.08);
+}
+.task-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.task-card-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.task-card-right {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.task-desc {
+  color: #cfcfcf;
+  margin-top: 6px;
+}
+
+.task-meta {
+  display: flex;
+  gap: 16px;
+  margin: 10px 0 8px;
+  color: #c9c9c9;
+  flex-wrap: wrap;
+}
+.meta strong {
+  color: #fff;
+}
+.meta.due.overdue {
+  color: #ff6b6b;
+}
+.meta.due.soon {
+  color: #ffd166;
+}
+
+/* Chips / badges */
+.priority-badge {
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  border: 1px solid transparent;
+}
+.priority-badge.high {
+  background: rgba(230, 0, 0, 0.15);
+  border-color: #e60000;
+}
+.priority-badge.medium {
+  background: rgba(255, 193, 7, 0.12);
+  border-color: #ffc107;
+}
+.priority-badge.low {
+  background: rgba(108, 117, 125, 0.12);
+  border-color: #6c757d;
+}
+
+.status-chip {
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: #222;
+  border: 1px solid #333;
+}
+.status-todo {
+  color: #ddd;
+}
+.status-inprogress {
+  color: #66b3ff;
+  border-color: #2a6fbd;
+}
+.status-review {
+  color: #ffd166;
+  border-color: #b28722;
+}
+.status-published {
+  color: #7bd88f;
+  border-color: #2a7d44;
+}
+
+/* Buttons (reuse app palette) */
+.btn {
+  appearance: none;
+  border: 1px solid #333;
+  background: #151515;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease, transform 0.05s ease;
+}
+.btn:hover {
+  background: #1a1a1a;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: #e60000;
+  border-color: #e60000;
+}
+.btn-primary:hover {
+  background: #cc0000;
+  border-color: #cc0000;
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: #444;
+}
+.btn-outline:hover {
+  border-color: #e60000;
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: transparent;
+  color: #ddd;
+}
+
+.btn-danger {
+  background: #2b0d0d;
+  border-color: #5c1515;
+  color: #ff7b7b;
+}
+.btn-danger:hover {
+  background: #3a1111;
+  border-color: #8a1f1f;
+}
+
+/* Empty state */
+.empty {
+  background: #0f0f0f;
+  border: 1px dashed #333;
+  color: #aaa;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+/* Responsive tweaks */
+@media (max-width: 850px) {
+  .task-controls {
+    grid-template-columns: 1fr 1fr;
+  }
+  .task-new-row {
+    grid-template-columns: 1fr;
+  }
+}
