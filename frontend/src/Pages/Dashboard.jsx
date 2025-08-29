@@ -21,7 +21,7 @@ const Dashboard = () => {
         const parsedUser = JSON.parse(storedUser);
         setUserName(parsedUser.name || "User");
       } catch (err) {
-        console.error("Error parsing stored user:" err);
+        console.error("Error parsing stored user:", err);
       }
     }
   }, []);
