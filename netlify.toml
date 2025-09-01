@@ -1,0 +1,8 @@
+[build]
+    base = "frontend"
+    publish = "frontend/dist"
+    command = "npm rub build"
+
+[functions]
+    directory = "frontend/netlify/functions"
+    
