@@ -5,12 +5,17 @@ import path from "path";
 import fs from "fs";
 import notificationsRouter from './notifications.js';
 
+
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
 app.use('/api/notifications', notificationsRouter);
+
+app.get("/", (req, res) => {
+  res.send("Hello from Fly Media");
+});
 
 // Ensure uploads folder exists
 if (!fs.existsSync("uploads")) {
