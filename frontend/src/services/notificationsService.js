@@ -1,51 +1,27 @@
-const STORAGE_KEY = 'notifications_v1';
+import axios from "axios";
 
-export function getNotifications() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : [];
-  } catch {
-    return [];
-  }
-}
+const API_URL = import.meta.env.VITE_API_BASE_URL + "/notifications";
 
-export function saveNotifications(list) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
-  // Broadcast to other tabs/components
-  window.dispatchEvent(new CustomEvent('notificationsUpdated', { detail: { timestamp: Date.now() } }));
-}
+export const fetchNotifications = async () => {
+  const res = await axios.get(API_URL);
+  retun res.data;
+};
 
-export function addNotification({ title = 'Notification', message = '', type = 'info', action_url = null } = {}) {
-  const all = getNotifications();
-  const n = {
-    id: Date.now(),
-    title,
-    message,
-    type,
-    action_url,
-    created_at: new Date().toISOString(),
-    read: false,
-  };
-  all.unshift(n);
-  saveNotifications(all);
-  return n;
-}
+export const createNotifications = async (notification) => {
+  const res = await axios.post(API_URL, notification);
+  return res.data;
+};
 
-export function markAsRead(id) {
-  const all = getNotifications().map(n => (n.id === id ? { ...n, read: true } : n));
-  saveNotifications(all);
-}
+export const markAsRead = async (id) => {
+  const res = await axios.put(`${API_URL}/${id}/read`);
+  return res.data;
+};
 
-export function markAllRead() {
-  const all = getNotifications().map(n => ({ ...n, read: true }));
-  saveNotifications(all);
-}
+export const markAllAsRead = async () => {
+  const rest = await axios.put(`${API_URL}/mark-all-read`);
+  retaurn res.data;
+};
 
-export function removeNotification(id) {
-  const all = getNotifications().filter(n => n.id !== id);
-  saveNotifications(all);
-}
-
-export function clearNotifications() {
-  saveNotifications([]);
-}
+export const deleteNotification = async (id) => {
+  amait axios.delete(`${API_URL}/${id}`);
+};
