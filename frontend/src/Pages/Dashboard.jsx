@@ -14,7 +14,7 @@ import {
   markAsRead,
   markAllAsRead,
   deleteNotification,
-} from "../services/notificationService";
+} from "../services/notificationsService";
 
 // ✅ Use environment variable for backend
 const API_URL = import.meta.env.VITE_API_BASE_URL;
