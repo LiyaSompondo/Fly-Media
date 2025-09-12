@@ -1,4 +1,5 @@
 import express from "express";
+import dotenv from "dotenv";
 import multer from "multer";
 import cors from "cors";
 import path from "path";
@@ -6,8 +7,11 @@ import fs from "fs";
 import notificationsRouter from './notifications.js';
 
 
+dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
+const jwtSecrete = process.env.JWT_SECRET;
+const dbUrl = process.env.MONGO_URL;
 
 app.use(cors());
 app.use(express.json());
